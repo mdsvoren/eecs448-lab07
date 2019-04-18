@@ -13,6 +13,15 @@ public:
 
 private:
   bool testCreation();
+  bool testDestructor();
+  bool testIsEmpty();
+  bool testSize();
+  bool testSearch();
+  bool testToVector();
+  bool testAddBack();
+  bool testAddFront();
+  bool testRemoveBack();
+  bool testRemoveFront();
 
 
 
