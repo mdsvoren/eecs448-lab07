@@ -88,7 +88,7 @@ bool testSuite::testSize()
     std::cout << "FAIL:: testSize: Incorrectly identifies size of empty list\n";
   }
 
-  //check non zero sizes
+  //check non zero sizes with addBack
   bool nonZ = true;
   for (int i = 1; i<4000; i++)
   {
@@ -97,14 +97,35 @@ bool testSuite::testSize()
     {
       pass = false;
       nonZ = false;
-      std::cout << "FAIL:: testSize: Incorrectly identifies size of non-empty list\n";
+      std::cout << "FAIL:: testSize: Incorrectly identifies size of non-empty list using addBack\n";
       break;
     }
   }
 
   if (!nonZ)
   {
-    std::cout << "testSize: Correctly identifies size of non-empty list\n";
+    std::cout << "testSize: Correctly identifies size of non-empty list using addBack\n";
+  }
+
+
+  //check non zero sizes with addFront
+  LinkedListOfInts t1;
+  bool non0 = true;
+  for (int i = 1; i<4000; i++)
+  {
+    t1.addBack(i);
+    if (t1.size()!=i)
+    {
+      pass = false;
+      non0 = false;
+      std::cout << "FAIL:: testSize: Incorrectly identifies size of non-empty list using addFront\n";
+      break;
+    }
+  }
+
+  if (!non0)
+  {
+    std::cout << "testSize: Correctly identifies size of non-empty list using addFront\n";
   }
 
   return pass;
@@ -115,6 +136,76 @@ bool testSuite::testSize()
 bool testSuite::testSearch()
 {
   LinkedListOfInts testableList;
+  bool pass = true;
+
+  //maybe check type of Value?
+
+  //check empty list
+  bool found = false;
+  for (int i = -100; i<100; i++)
+  {
+    if (testableList.search(i))
+    {
+      pass = false;
+      found = true;
+      std::cout << "FAIL: testSearch: Incorrectly found value in empty list.";
+      break;
+    }
+  }
+  if (!found)
+  {
+    std::cout << "testSearch: Correctly found no value in empty list.";
+  }
+
+  //check non empty list
+  for (int i= -100; i<100; i++)
+  {
+    testableList.addFront(i);
+  }
+  if (!testableList.search(-100))
+  {
+      pass = false;
+      std::cout << "FAIL: testSearch: Failed to find value in list";
+  }
+  else
+  {
+    std::cout<< "testSearch: Correctly found negative value in list";
+  }
+
+  if (testableList.search(100))
+  {
+      pass = false;
+      std::cout << "FAIL: testSearch: Found item that list doesn't contain";
+  }
+  else
+  {
+      std::cout<< "testSearch: Correctly did not find positive value in list";
+
+  }
+  if (testableList.search(30000))
+  {
+      pass = false;
+      std::cout << "FAIL: testSearch: Found item that list doesn't contain";
+  }
+  else
+  {
+      std::cout<< "testSearch: Correctly did not find very high value in list";
+
+  }
+  if (testableList.search(-101))
+  {
+      pass = false;
+      std::cout << "FAIL: testSearch: Found item that list doesn't contain";
+  }
+  else
+  {
+    std::cout<< "testSearch: Correctly did not find negative value in list";
+  }
+
+  return pass;
+  
+
+
 }
 
 
