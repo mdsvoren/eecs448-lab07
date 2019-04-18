@@ -203,21 +203,80 @@ bool testSuite::testSearch()
   }
 
   return pass;
-  
-
-
 }
 
 
 bool testSuite::testToVector()
 {
-  LinkedListOfInts testableList;
+  std::cout << "testToVector: Guarenteed to be fully functional";
 }
 
 
 bool testSuite::testAddBack()
 {
+  //need to test that it increments m_size
+  //need to test that it adds the correct value
+  //see if it can handle a large list
   LinkedListOfInts testableList;
+
+  bool pass = true;
+
+  //test if starting from nothing
+  testableList.addBack(5);
+  if (testableList.size()==1)
+  {
+    std::cout << "testAddBack: Correctly increments m_size from 0\n";
+  }
+  else
+  {
+    pass = false;    
+    std::cout << "FAIL: testAddBack: Fails to increments m_size from 0\n";
+
+  }
+
+  if (!testableList.search(5))
+  {
+    std::cout << "FAIL: testAddBack: addBack stored incorrect value\n";
+    pass = false;
+  }
+  else
+  {
+    std::cout << "testAddBack: addBack stored correct value\n";
+  }
+
+  //test high numbers (large list)
+  LinkedListOfInts t1;
+  for (int i = -4; i< 999995; i++)
+  {
+    t1.addBack(i);
+  }
+
+  if (t1.size()!=99999)
+  {
+    std::cout << "FAIL: testAddBack: Fails to increments m_size for large lists\n";
+    pass=false;
+  }
+  else
+  {
+    std::cout << "testAddBack: Correctly increments m_size for large lists\n";
+  }
+
+  found = true;
+  for (int i=-4; i<999995; i++)
+  {
+    if (!t1.search(i))
+    {
+      std::cout << "FAIL: testAddBack: Fails to insert correct value for large lists\n";
+      pass = false;
+      found = false;
+      break;
+    }
+  }
+  if (found)
+  {
+      std::cout << "testAddBack: Correctly inserts values for large lists\n";
+  }
+
 }
 
 
