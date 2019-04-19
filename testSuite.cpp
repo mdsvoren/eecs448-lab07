@@ -12,6 +12,15 @@ testSuite::testSuite()
 void testSuite::run()
 {
   testCreation();
+  testDestructor();
+  testIsEmpty();
+  testSize();
+  testSearch();
+  testToVector();
+  testAddBack();
+  testAddFront();
+  testRemoveBack();
+  testRemoveFront();
 }
 
 bool testSuite::testCreation()

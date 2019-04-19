@@ -20,6 +20,7 @@ int main(int argc, char** argv)
 	//delete t1;
 
 	testSuite t1;
+	t1.run();
 
 	std::cout << "Running...\nAnd we're done.\nGoodbye.\n";
 
