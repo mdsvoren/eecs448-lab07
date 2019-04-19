@@ -157,13 +157,13 @@ bool testSuite::testSearch()
     {
       pass = false;
       found = true;
-      std::cout << "FAIL: testSearch: Incorrectly found value in empty list.";
+      std::cout << "FAIL: testSearch: Incorrectly found value in empty list.\n";
       break;
     }
   }
   if (!found)
   {
-    std::cout << "testSearch: Correctly found no value in empty list.";
+    std::cout << "testSearch: Correctly found no value in empty list.\n";
   }
 
   //check non empty list
@@ -174,41 +174,41 @@ bool testSuite::testSearch()
   if (!testableList.search(-100))
   {
       pass = false;
-      std::cout << "FAIL: testSearch: Failed to find value in list";
+      std::cout << "FAIL: testSearch: Failed to find value in list\n";
   }
   else
   {
-    std::cout<< "testSearch: Correctly found negative value in list";
+    std::cout<< "testSearch: Correctly found negative value in list\n";
   }
 
   if (testableList.search(100))
   {
       pass = false;
-      std::cout << "FAIL: testSearch: Found item that list doesn't contain";
+      std::cout << "FAIL: testSearch: Found item that list doesn't contain\n";
   }
   else
   {
-      std::cout<< "testSearch: Correctly did not find positive value in list";
+      std::cout<< "testSearch: Correctly did not find positive value in list\n";
 
   }
   if (testableList.search(30000))
   {
       pass = false;
-      std::cout << "FAIL: testSearch: Found item that list doesn't contain";
+      std::cout << "FAIL: testSearch: Found item that list doesn't contain\n";
   }
   else
   {
-      std::cout<< "testSearch: Correctly did not find very high value in list";
+      std::cout<< "testSearch: Correctly did not find very high value in list\n";
 
   }
   if (testableList.search(-101))
   {
       pass = false;
-      std::cout << "FAIL: testSearch: Found item that list doesn't contain";
+      std::cout << "FAIL: testSearch: Found item that list doesn't contain\n";
   }
   else
   {
-    std::cout<< "testSearch: Correctly did not find negative value in list";
+    std::cout<< "testSearch: Correctly did not find negative value in list\n";
   }
 
   return pass;
@@ -217,7 +217,7 @@ bool testSuite::testSearch()
 
 bool testSuite::testToVector()
 {
-  std::cout << "testToVector: Guarenteed to be fully functional";
+  std::cout << "testToVector: Guarenteed to be fully functional\n";
   return true;
 }
 
