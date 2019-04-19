@@ -209,6 +209,7 @@ bool testSuite::testSearch()
 bool testSuite::testToVector()
 {
   std::cout << "testToVector: Guarenteed to be fully functional";
+  return true;
 }
 
 
@@ -415,7 +416,7 @@ bool testSuite::testRemoveBack()
     {
       l2.removeBack();
     }
-    if (l2.isEmpty)
+    if (l2.isEmpty())
     {
       std::cout << "testRemoveBack: Correctly removed all elements from a large list\n";
     }
@@ -500,7 +501,7 @@ bool testSuite::testRemoveFront()
     {
       l2.removeFront();
     }
-    if (l2.isEmpty)
+    if (l2.isEmpty())
     {
       std::cout << "testRemoveFront: Correctly removed all elements from a large list\n";
     }
@@ -515,5 +516,7 @@ bool testSuite::testRemoveFront()
     std::cout << "ERROR: testRemoveFront: addback didn't add correctly. Can't verify this test\n";
     pass = false;
   }
+
+  return pass;
 
 }
