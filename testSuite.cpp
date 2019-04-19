@@ -229,7 +229,7 @@ bool testSuite::testAddBack()
   }
   else
   {
-    pass = false;    
+    pass = false;
     std::cout << "FAIL: testAddBack: Fails to increments m_size from 0\n";
 
   }
@@ -261,7 +261,7 @@ bool testSuite::testAddBack()
     std::cout << "testAddBack: Correctly increments m_size for large lists\n";
   }
 
-  found = true;
+  bool found = true;
   for (int i=-4; i<999995; i++)
   {
     if (!t1.search(i))
@@ -277,12 +277,78 @@ bool testSuite::testAddBack()
       std::cout << "testAddBack: Correctly inserts values for large lists\n";
   }
 
+  return pass;
+
 }
 
 
 bool testSuite::testAddFront()
 {
+  //need to test that it increments m_size
+  //need to test that it adds the correct value
+  //see if it can handle a large list
   LinkedListOfInts testableList;
+
+  bool pass = true;
+
+  //test if starting from nothing
+  testableList.addFront(5);
+  if (testableList.size()==1)
+  {
+    std::cout << "testAddFront: Correctly increments m_size from 0\n";
+  }
+  else
+  {
+    pass = false;
+    std::cout << "FAIL: testAddFront: Fails to increments m_size from 0\n";
+
+  }
+
+  if (!testableList.search(5))
+  {
+    std::cout << "FAIL: testAddFront: addFront stored incorrect value\n";
+    pass = false;
+  }
+  else
+  {
+    std::cout << "testAddFront: addFront stored correct value\n";
+  }
+
+  //test high numbers (large list)
+  LinkedListOfInts t1;
+  for (int i = -4; i< 999995; i++)
+  {
+    t1.addFront(i);
+  }
+
+  if (t1.size()!=99999)
+  {
+    std::cout << "FAIL: testAddFront: Fails to increments m_size for large lists\n";
+    pass=false;
+  }
+  else
+  {
+    std::cout << "testAddFront: Correctly increments m_size for large lists\n";
+  }
+
+  bool found = true;
+  for (int i=-4; i<999995; i++)
+  {
+    if (!t1.search(i))
+    {
+      std::cout << "FAIL: testAddFront: Fails to insert correct value for large lists\n";
+      pass = false;
+      found = false;
+      break;
+    }
+  }
+  if (found)
+  {
+      std::cout << "testAddFront: Correctly inserts values for large lists\n";
+  }
+
+  return pass;
+
 }
 
 
