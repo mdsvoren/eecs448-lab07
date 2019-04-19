@@ -354,11 +354,166 @@ bool testSuite::testAddFront()
 
 bool testSuite::testRemoveBack()
 {
+  //large list
+  //correctly decrements m_size
+  //remove back of size 1
   LinkedListOfInts testableList;
+
+  bool pass = true;
+
+  //check if it actually removes
+  LinkedListOfInts l1;
+  if (l1.isEmpty())
+  {
+    std::cout<<"ERROR: testRemoveBack: unable to test due to failed addBack function\n";
+    pass = false;
+  }
+  else
+  {
+    bool success = l1.removeBack();
+    if (l1.isEmpty() && success)
+    {
+      std::cout << "testRemoveBack: Correctly removed back element in list\n";
+    }
+    else
+    {
+      std::cout << "FAIL: testRemoveBack: Failed to remove back element in list\n";
+      pass = false;
+    }
+  }
+
+  //check m_size
+  testableList.addBack(4);
+  if (testableList.size() == 1)
+  {
+    testableList.removeBack();
+    if (testableList.size()==0)
+    {
+      std::cout << "testRemoveBack: Correctly decremented list size in removeBack\n";
+    }
+    else
+    {
+      std::cout << "FAIL: testRemoveBack: Failed to correctly decrement list size\n";
+      pass = false;
+    }
+  }
+  else
+  {
+    std::cout <<"ERROR:: testRemoveBack: addBack didn't add correctly. Can't verify this test.\n";
+    pass = false;
+  }
+
+  //check large list
+  LinkedListOfInts l2;
+  for (int i = 0; i<10000; i++)
+  {
+    l2.addBack(i);
+  }
+  if (l2.size() == 10000)
+  {
+    for (int i=0; i<10000; i++)
+    {
+      l2.removeBack();
+    }
+    if (l2.isEmpty)
+    {
+      std::cout << "testRemoveBack: Correctly removed all elements from a large list\n";
+    }
+    else
+    {
+      std::cout << "FAIL: testRemoveBack: Failed to remove all elements from a large list\n";
+      pass = false;
+    }
+  }
+  else
+  {
+    std::cout << "ERROR: testRemoveBack: addback didn't add correctly. Can't verify this test\n";
+    pass = false;
+  }
+
+  return pass;
 }
 
 
 bool testSuite::testRemoveFront()
 {
+   //large list
+  //correctly decrements m_size
+  //remove back of size 1
   LinkedListOfInts testableList;
+
+  bool pass = true;
+
+  //check if it actually removes
+  LinkedListOfInts l1;
+  l1.addBack(1);
+  if (l1.isEmpty())
+  {
+    std::cout<<"ERROR: testRemoveFront: unable to test due to failed addBack function\n";
+    pass = false;
+  }
+  else
+  {
+    
+    bool success = l1.removeFront();
+    if (l1.isEmpty() && success)
+    {
+      std::cout << "testRemoveFront: Correctly removed front element in list\n";
+    }
+    else
+    {
+      std::cout << "FAIL: testRemoveFront: Failed to remove front element in list\n";
+      pass = false;
+    }
+  }
+
+  //check m_size
+  testableList.addBack(4);
+  if (testableList.size() == 1)
+  {
+    testableList.removeFront();
+    if (testableList.size()==0)
+    {
+      std::cout << "testRemoveFront: Correctly decremented list size in removeFront\n";
+    }
+    else
+    {
+      std::cout << "FAIL: testRemoveFront: Failed to correctly decrement list size\n";
+      pass = false;
+    }
+  }
+  else
+  {
+    std::cout <<"ERROR:: testRemoveFront: addBack didn't add correctly. Can't verify this test.\n";
+    pass = false;
+  }
+
+  //check large list
+  LinkedListOfInts l2;
+  for (int i = 0; i<10000; i++)
+  {
+    l2.addFront(i);
+  }
+  if (l2.size() == 10000)
+  {
+    for (int i=0; i<10000; i++)
+    {
+      l2.removeFront();
+    }
+    if (l2.isEmpty)
+    {
+      std::cout << "testRemoveFront: Correctly removed all elements from a large list\n";
+    }
+    else
+    {
+      std::cout << "FAIL: testRemoveFront: Failed to remove all elements from a large list\n";
+      pass = false;
+    }
+  }
+  else
+  {
+    std::cout << "ERROR: testRemoveFront: addback didn't add correctly. Can't verify this test\n";
+    pass = false;
+  }
+
 }
