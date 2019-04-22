@@ -458,7 +458,7 @@ bool testSuite::testRemoveFront()
   //check if it actually removes
   LinkedListOfInts l1;
   l1.addBack(1);
-  if (!l1.size()==1)
+  if (l1.size()!=1)
   {
     std::cout<<"ERROR: testRemoveFront: unable to test due to failed addBack function\n";
     pass = false;
