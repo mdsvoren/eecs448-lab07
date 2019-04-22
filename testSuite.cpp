@@ -467,7 +467,7 @@ bool testSuite::testRemoveFront()
   {
     
     bool success = l1.removeFront();
-    if (l1.isEmpty() && success)
+    if (l1.size() == 0 && success)
     {
       std::cout << "testRemoveFront: Correctly removed front element in list\n";
     }
@@ -511,7 +511,7 @@ bool testSuite::testRemoveFront()
     {
       l2.removeFront();
     }
-    if (l2.isEmpty())
+    if (l2.size()==0)
     {
       std::cout << "testRemoveFront: Correctly removed all elements from a large list\n";
     }
