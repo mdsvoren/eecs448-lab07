@@ -22,7 +22,7 @@ int main(int argc, char** argv)
 	testSuite t1;
 	t1.run();
 
-	std::cout << "Running...\nAnd we're done.\nGoodbye.\n";
+	std::cout << "And we're done.\nGoodbye.\n";
 
 	return (0);
 
