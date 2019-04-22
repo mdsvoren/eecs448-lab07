@@ -426,7 +426,7 @@ bool testSuite::testRemoveBack()
     {
       l2.removeBack();
     }
-    if (l2.isEmpty())
+    if (l2.size() == 0)
     {
       std::cout << "testRemoveBack: Correctly removed all elements from a large list\n";
     }
