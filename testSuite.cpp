@@ -18,6 +18,7 @@ void testSuite::run()
   testSearch();
   testToVector();
   testAddBack();
+  std::cout << "---Finished AddBack()";
   testAddFront();
   testRemoveBack();
   testRemoveFront();
@@ -256,12 +257,12 @@ bool testSuite::testAddBack()
 
   //test high numbers (large list)
   LinkedListOfInts t1;
-  for (int i = -4; i< 999995; i++)
+  for (int i = 0; i< 10000; i++)
   {
     t1.addBack(i);
   }
 
-  if (t1.size()!=99999)
+  if (t1.size()!=10000)
   {
     std::cout << "FAIL: testAddBack: Fails to increments m_size for large lists\n";
     pass=false;
@@ -272,7 +273,7 @@ bool testSuite::testAddBack()
   }
 
   bool found = true;
-  for (int i=-4; i<999995; i++)
+  for (int i=0; i<10000; i++)
   {
     if (!t1.search(i))
     {
@@ -331,7 +332,7 @@ bool testSuite::testAddFront()
     t1.addFront(i);
   }
 
-  if (t1.size()!=99999)
+  if (t1.size()!=100000)
   {
     std::cout << "FAIL: testAddFront: Fails to increments m_size for large lists\n";
     pass=false;
