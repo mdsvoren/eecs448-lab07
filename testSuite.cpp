@@ -11,16 +11,28 @@ testSuite::testSuite()
 
 void testSuite::run()
 {
-  testCreation();
-  testDestructor();
-  testIsEmpty();
-  testSize();
-  testSearch();
-  testToVector();
-  testAddBack();
-  testAddFront();
-  testRemoveBack();
-  testRemoveFront();
+  bool total[10];
+  total[0] = testCreation();
+  total[1] =testDestructor();
+  total[2] =testIsEmpty();
+  total[3] =testSize();
+  total[4] =testSearch();
+  total[5] =testToVector();
+  total[6] =testAddBack();
+  total[7] =testAddFront();
+  total[8] =testRemoveBack();
+  total[9] =testRemoveFront();
+
+  int pass = 0;
+  for (int i = 0; i<10; i++)
+  {
+    if (total[i])
+    {
+      pass++;
+    }
+  }
+  std::cout << "\n# of Working Functions: " << pass << std::endl;
+  std::cout << "# of Broken Functions: " << (10-pass) << std::endl;
 }
 
 bool testSuite::testCreation()
@@ -42,6 +54,7 @@ bool testSuite::testCreation()
 bool testSuite::testDestructor()
 {
   LinkedListOfInts testableList;
+  return true;
 
 }
 

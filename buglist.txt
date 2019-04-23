@@ -1,0 +1,4 @@
+I think there are three bugs in the code:
+1) isEmpty() always returns true, which should not be the case.
+2) removeBack() does not decrement list size.
+3) removeFront() does not decrement list size.
