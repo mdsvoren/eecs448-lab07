@@ -40,12 +40,12 @@ bool testSuite::testCreation()
   try
   {
     LinkedListOfInts testableList;
-    std::cout<<"Creating empty list succeeded.\n";
+    std::cout<<"testCreation: Creating empty list succeeded.\n";
     return true;
   }
   catch(int e)
   {
-    std::cout<<"Creating empty list failed.\n";
+    std::cout<<"FAIL: testCreation: Creating empty list failed.\n";
   }
   return false;
 }
