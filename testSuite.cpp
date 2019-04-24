@@ -234,7 +234,6 @@ bool testSuite::testToVector()
   return true;
 }
 
-
 bool testSuite::testAddBack()
 {
   //need to test that it increments m_size
@@ -254,9 +253,8 @@ bool testSuite::testAddBack()
   {
     pass = false;
     std::cout << "FAIL: testAddBack: Fails to increments m_size from 0\n";
-
   }
-
+  
   if (!testableList.search(5))
   {
     std::cout << "FAIL: testAddBack: addBack stored incorrect value\n";
@@ -284,12 +282,13 @@ bool testSuite::testAddBack()
     std::cout << "testAddBack: Correctly increments m_size for large lists\n";
   }
 
+  std::vector<int> vect1 = t1.toVector();
   bool found = true;
   for (int i=0; i<10000; i++)
   {
-    if (!t1.search(i))
+    if (vect1[i] != i)
     {
-      std::cout << "FAIL: testAddBack: Fails to insert correct value for large lists\n";
+      std::cout << "FAIL: testAddBack: Fails to insert values in correct order\n";
       pass = false;
       found = false;
       break;
@@ -394,8 +393,9 @@ bool testSuite::testRemoveBack()
   }
   else
   {
-    bool success = l1.removeBack();
-    if (l1.isEmpty() && success)
+    l1.removeBack();
+    std::vector<int> v1 = l1.toVector();
+    if (v1.size()==0)
     {
       std::cout << "testRemoveBack: Correctly removed back element in list\n";
     }
@@ -479,8 +479,9 @@ bool testSuite::testRemoveFront()
   else
   {
     
-    bool success = l1.removeFront();
-    if (l1.size() == 0 && success)
+    l1.removeFront();
+    std::vector<int> v1 = l1.toVector();
+    if (v1.size() == 0)
     {
       std::cout << "testRemoveFront: Correctly removed front element in list\n";
     }
