@@ -54,8 +54,8 @@ bool testSuite::testCreation()
 bool testSuite::testDestructor()
 {
   LinkedListOfInts testableList;
-  return true;
-
+  std::cout << "FAIL: testDestructor: Memory Leaks exist\n";
+  return false;
 }
 
 

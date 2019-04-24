@@ -1,4 +1,13 @@
-I think there are three bugs in the code:
+Several function shave issues in the code:
 1) isEmpty() always returns true, which should not be the case.
-2) removeBack() does not decrement list size.
-3) removeFront() does not decrement list size.
+2) removeBack() does not remove nodes
+3) removeFront() does not remove nodes
+4) addBack() messes up the order.
+5) Destructor has memory leaks.
+
+I believe that there is only one actual bug in the code, which is that isEmpty always
+returns true. This causes the other four stated errors. The remove functions do not remove because
+they call isEmpty to see if there is anything to remove, and it says that there is nothing to remove. 
+addBack() actually adds to the front because it thinks that the list is empty, so it uses the addFront() method instead
+which if the list was actually empty, would be fine. Finally, there are memory leaks because the Destructor
+calls one of the remove methods and, as aforementioned, these do not actually remove any nodes.
