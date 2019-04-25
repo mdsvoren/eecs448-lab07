@@ -54,7 +54,7 @@ bool testSuite::testCreation()
 bool testSuite::testDestructor()
 {
   LinkedListOfInts testableList;
-  std::cout << "FAIL: testDestructor: Memory Leaks exist\n";
+  std::cout << "FAIL: testDestructor: When testing with Valgrind, memory Leaks exist\n";
   return false;
 }
 
@@ -254,7 +254,7 @@ bool testSuite::testAddBack()
     pass = false;
     std::cout << "FAIL: testAddBack: Fails to increments m_size from 0\n";
   }
-  
+
   if (!testableList.search(5))
   {
     std::cout << "FAIL: testAddBack: addBack stored incorrect value\n";
@@ -354,11 +354,13 @@ bool testSuite::testAddFront()
   }
 
   bool found = true;
+  std::vector<int> v2 = t1.toVector();
+
   for (int i=0; i<10000; i++)
   {
-    if (!t1.search(i))
+    if (v2.at(i) != 9999-i)
     {
-      std::cout << "FAIL: testAddFront: Fails to insert correct value for large lists\n";
+      std::cout << "FAIL: testAddFront: Fails to insert values in correct order\n";
       pass = false;
       found = false;
       break;
@@ -366,7 +368,7 @@ bool testSuite::testAddFront()
   }
   if (found)
   {
-      std::cout << "testAddFront: Correctly inserts values for large lists\n";
+      std::cout << "testAddFront: Correctly inserts values in correct order\n";
   }
 
   return pass;
@@ -478,7 +480,7 @@ bool testSuite::testRemoveFront()
   }
   else
   {
-    
+
     l1.removeFront();
     std::vector<int> v1 = l1.toVector();
     if (v1.size() == 0)

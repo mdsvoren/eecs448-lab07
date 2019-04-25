@@ -10,19 +10,12 @@
 
 int main(int argc, char** argv)
 {
-	//Example of declaring a LinkedListOfInts
-	//LinkedListOfInts testableList;
-
-	//You won't do all the tests in main; that's what your Test class will be for
-	//Example:
-	//testSuite t1 = new testSuite();
-	//t1->run();
-	//delete t1;
+	std::cout << "\nStarting tests.\n\n";
 
 	testSuite t1;
 	t1.run();
 
-	std::cout << "\nGoodbye.\n";
+	std::cout << "\nFinished.\n\n";
 
 	return (0);
 
